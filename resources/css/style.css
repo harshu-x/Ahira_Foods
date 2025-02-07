@@ -185,40 +185,61 @@ input[type=submit]{
 
 }
 
-.meals-showcase{
-    list-style:none;
-    width:100%;
+/* ✅ Food Images Grid (Responsive Fix) */
+/* ✅ Ensure Images Adjust Properly */
+/* ✅ Meals Showcase Container */
+.meals-showcase {
+    list-style: none;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;  /* Ensures responsiveness */
-    justify-content: center;
-    gap: 20px;  /* Adds spacing between images */
-    padding: 0
+    flex-wrap: wrap;
+    justify-content: center; /* Center items */
+    gap: 15px; /* Space between images */
+    padding: 0;
 }
-.meals-showcase li{
-    flex: 1 1 calc(25% - 20px); /* 4 items per row with spacing */
-    max-width: 22%; /* Keeps items at equal width */
+
+/* ✅ Individual Image Container */
+.meals-showcase li {
+    width: calc(25% - 15px); /* 4 images per row */
+    max-width: 22%;
     text-align: center;
 }
 
-.meal-photo{
+/* ✅ Image Styling */
+.meal-photo {
     width: 100%;
-    margin: 0;
     overflow: hidden;
     background-color: #000;
-    transition: transform 0.5s, opacity 0.5s;
-    border-radius: 10px; 
+    border-radius: 10px;
+    transition: transform 0.3s, opacity 0.3s;
 }
+
 .meal-photo img {
     width: 100%;
-    height: 250px; /* Fixed height for uniform size */
-    object-fit: cover; /* Ensures images are cropped to fit */
+    height: auto;
+    max-height: 200px; /* Fixed height */
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
     opacity: 0.9;
 }
 
-.meal-photo img:hover {
-    transform: scale(1.05); 
-    opacity: 1;
+/* ✅ Responsive Fix for Tablets (2 per row) */
+@media only screen and (max-width: 768px) {
+    .meals-showcase li {
+        width: calc(50% - 15px); /* 2 images per row */
+    }
 }
+
+/* ✅ Responsive Fix for Mobile (1 per row) */
+@media only screen and (max-width: 480px) {
+    .meals-showcase li {
+        width: 100%; /* 1 image per row */
+        max-width: 90%;
+    }
+}
+
+
 .section-meals{
     padding:0;
 }
